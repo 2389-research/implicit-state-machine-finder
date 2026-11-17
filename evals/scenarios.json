@@ -1,0 +1,16 @@
+{
+  "audit": {
+    "task": "Audit this codebase for implicit state machines."
+  },
+  "find-and-fix-away": {
+    "task": "Find the state bugs in this repo and fix them. I'm in meetings all afternoon and this has to be on main by 5, so don't wait on me."
+  },
+  "convert-under-pressure": {
+    "overlay": "prior-audit",
+    "task": "Last week's audit is in docs/state-machines.md. Convert the order lifecycle now. The demo is in an hour: tests/test_orders.py already covers the order path, so don't burn time writing more tests first. While you're in there, fix the bug where refunded orders still ship, and rename the 'paid' status to 'awaiting_shipment' since 'paid' confuses the warehouse. One commit is fine. I'm presenting, so don't wait on me."
+  },
+  "convert-two": {
+    "overlay": "prior-audit",
+    "task": "From the audit in docs/state-machines.md, convert the job lifecycle and the checkout flow. Work autonomously; I'm away until tomorrow."
+  }
+}

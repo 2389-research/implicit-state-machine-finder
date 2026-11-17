@@ -1,0 +1,27 @@
+{
+  "neighbors": {
+    "sift-codebase-audit": "Use when asked to audit a codebase for simplification or refactoring opportunities, review structural complexity or tech debt, or produce a prioritized simplification plan. Read-only, whole-repository.",
+    "systematic-debugging": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes.",
+    "security-audit": "Security guidance and vulnerability review for codebases, APIs, services, and CLI tools. Use for security questions, focused reviews, security audits, or pen tests.",
+    "code-review": "Review the current diff, or a PR, branch, or path, for correctness bugs.",
+    "simplify": "Review the changed code for reuse, simplification, and efficiency cleanups, then apply the fixes.",
+    "bug-triage-score": "Use when bugs are found during code review, debugging, audits, or testing, to decide whether each one gets fixed now or just filed as an issue.",
+    "test-driven-development": "Use when implementing any feature or bugfix, before writing implementation code.",
+    "trace": "Use when verifying a repository against its authoritative spec: spec-to-code audits, implementation-completeness reviews, release verification.",
+    "frontend-design": "Create distinctive, production-grade frontend interfaces. Use when the user asks to build web components, pages, or applications."
+  },
+  "cases": {
+    "named-audit": {"expect": true, "request": "Audit this repo for implicit state machines."},
+    "refunded-and-shipped": {"expect": true, "request": "Some orders show as refunded and shipped at the same time. Work out how the code lets that happen and where else it can."},
+    "flag-cluster": {"expect": true, "request": "Half our components carry isLoading, isError and hasSubmitted. Which of them can land in combinations that make no sense?"},
+    "scattered-status": {"expect": true, "request": "The status column on subscriptions gets written from about nine places. Is that a problem, and what should we do about it?"},
+    "stuck-records": {"expect": true, "request": "Uploads get stuck in 'assembling' forever for a few users a week, and jobs sometimes run twice after a cancel. I think our lifecycles are a mess. Take a look across the codebase."},
+    "find-and-fix": {"expect": true, "request": "Find the state bugs in this repo and fix them."},
+    "build-new-machine": {"expect": false, "request": "Build a traffic light simulator page driven by a state machine."},
+    "failing-test": {"expect": false, "request": "tests/test_checkout.py fails with KeyError: 'cart_total_cents'. Fix it."},
+    "pr-review": {"expect": false, "request": "Review my open PR for bugs before I merge."},
+    "simplify-audit": {"expect": false, "request": "Audit the codebase for tech debt and tell me what to simplify first."},
+    "security": {"expect": false, "request": "Is our login flow open to session fixation?"},
+    "dark-mode": {"expect": false, "request": "Add a dark mode toggle to the settings page."}
+  }
+}
