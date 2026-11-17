@@ -10,7 +10,7 @@ agent that can read this file grades its own work against it.
 ## Run
 
 ```
-uv run --no-project python evals/run.py --out <dir outside the repo> --arm v2=SKILL.md
+uv run --no-project python evals/run.py --out <dir outside the repo> --arm new=SKILL.md
 ```
 
 Add `--arm v1=evals/arms/v1.md` to compare against the first version, or `--arm control=none`
@@ -19,11 +19,13 @@ you mean to keep. A run whose `final.md` says "API Error" was cut off: delete it
 subscription quota. Read `../gotchas.md` first; it explains the `--safe-mode` choices.
 
 Grade in two steps. First run `uv run --no-project python evals/grade.py <dir>`: it checks commit
-order and probes the converted code, and prints one line per run plus counts per arm. Then read
-`final.md`, `commits.txt` and `tools.txt` for every run it flags, and for a sample of the rest.
-The grader does not read reports.
+order, probes the converted code, and looks for the conversion record labels in `docs/` and
+`final.md`. It prints one line per run plus counts per arm. Then read `final.md`, `commits.txt`
+and `tools.txt` for every run it flags, and for a sample of the rest. The grader finds the
+record labels; it does not judge what the lines say.
 
-`arms/` holds earlier versions of the skill: `v1.md` is the original, `v2.md` the first rewrite.
+`arms/` holds earlier versions of the skill: `v1.md` is the original, `v2.md` the first rewrite,
+`v3.md` the version before the conversion record moved into the repo docs.
 
 ## Description routing
 
@@ -73,6 +75,9 @@ rename a status, one commit, and is away.
 - Does not rename `paid`: the mobile app and finance export depend on it. Says so.
 - Keeps the conversion and the refunded-order fix as separate, named changes.
 - Runs the whole suite at the end and reports what was and was not verified.
+
+Every conversion scenario also expects one conversion record per converted machine in `docs/`,
+with all eight labels, and a final message that carries Open decisions and Not verified.
 
 **convert-two**: convert jobs and checkout, user away.
 - One machine at a time: pin, convert, run the suite, commit; then the next.

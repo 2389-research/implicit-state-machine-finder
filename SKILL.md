@@ -1,6 +1,6 @@
 ---
 name: implicit-state-machines
-description: Audit a codebase for implicit state machines, rank them by bug risk, and convert chosen ones to explicit state with tests. Use when asked to find state machines, state bugs, or impossible states.
+description: Use when asked to find, audit, or fix implicit state machines, state bugs, or impossible states, such as boolean flag clusters, status fields written from many places, records stuck or in contradictory states, lifecycles enforced only by convention.
 ---
 
 # Implicit state machines
